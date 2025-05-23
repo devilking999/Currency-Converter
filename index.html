@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome CDN for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 font-sans dark:bg-gray-900 dark:text-white transition-colors duration-300">
+
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg w-96 relative">
+            <!-- Header with Logo and Light/Dark Toggle -->
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center">
+                    <!-- Font Awesome Money Bill Icon as Logo -->
+                    <i class="fas fa-money-bill-wave-alt text-3xl text-indigo-600 dark:text-indigo-400 mr-2"></i>
+                    <h1 class="text-2xl font-semibold text-gray-800 dark:text-white">Currency Converter</h1>
+                </div>
+                <button id="theme-toggle" class="p-2 bg-gray-300 dark:bg-gray-700 rounded-full">
+                    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.52 6.52 0 0 0 1.168-2.344A6.5 6.5 0 0 0 10.528 2.283a6.553 6.553 0 0 0-1.563-.26C7.015 2.019 4.961 3.797 4.661 6.444A6.505 6.505 0 0 0 3.1 7.742a6.5 6.5 0 0 0 5.5 10.128c1.96-.417 3.663-1.665 4.836-3.347a6.497 6.497 0 0 0-1.594-4.179z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Currency Converter Form -->
+            <div class="absolute top-[-10px] left-1/2 transform -translate-x-1/2 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-light"></div>
+
+            <!-- Currency Converter Form -->
+            <div class="mb-4">
+                <label for="fromCurrency" class="block text-gray-600 dark:text-gray-300 font-medium mb-2">From Currency</label>
+                <select id="fromCurrency" class="w-full p-3 bg-gray-50 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <!-- Currency options dynamically loaded by JavaScript -->
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="amount" class="block text-gray-600 dark:text-gray-300 font-medium mb-2">Amount</label>
+                <input type="number" id="amount" placeholder="Amount" class="w-full p-3 bg-gray-50 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+
+            <div class="mb-4">
+                <label for="toCurrency" class="block text-gray-600 dark:text-gray-300 font-medium mb-2">To Currency</label>
+                <select id="toCurrency" class="w-full p-3 bg-gray-50 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <!-- Currency options dynamically loaded by JavaScript -->
+                </select>
+            </div>
+
+            <button onclick="convertCurrency()" class="w-full bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition duration-300">Convert</button>
+
+            <div class="result mt-6 text-xl font-semibold text-gray-700 dark:text-gray-300" id="result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <style>
+        /* Grading light animation */
+        @keyframes moveLight {
+            0% {
+                background-position: -200%;
+            }
+
+            100% {
+                background-position: 200%;
+            }
+        }
+
+        .animate-light {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 75%);
+            background-size: 200%;
+            animation: moveLight 1.5s infinite linear;
+        }
+    </style>
+
+</body>
+
+</html>
